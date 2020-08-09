@@ -1,0 +1,38 @@
+nav {
+    margin: 0;
+    overflow: hidden;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    display: block;
+    line-height: 1em;
+    padding: 1em 3em;
+    text-decoration: none;
+    background-color: black;
+}
+
+nav ul li:first-child {
+    margin-right: auto;
+}
+
+nav ul li a:hover {
+    background-color: #a9a9a9;
+    color: black;
+}
+
+nav ul .menu li a {
+    margin-top: 65px;
+}

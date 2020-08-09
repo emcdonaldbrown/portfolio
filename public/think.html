@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="EMB.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="embcss.css">
+    <title>Emma McDonald-Brown</title>
+</head>
+
+<body>
+    <div class="top-buffer">
+        <header class="header">
+            <a href="#">
+                <img class="logo" src="EMB.png" alt="EMB Logo" height=45 width=45>
+            </a>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="work.html">Work Experience</a></li>
+                <li><a href="education.html">Education/Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="pirate.html">Treasure Island</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="hangman-game">
+        <h2 class="title">Think of a number</h2>
+        <div class="education-main-text">
+            <p>
+                Think of a number:<br><br> Enter a number between 1 and 100, and the program will tell you how close you are to the correct answer.<br><br> To following will help you with your guesses:<br><br> • If the guess is correct, the box will turn
+                green<br><br> • If the guess is within 10 of the correct answer, the box will turn red (hot).<br><br> • if the guess is not within 30 of the correct answer, the box will turn blue (cold).<br><br> • Otherwise, the box will turn white (neither).
+                <br><br>
+            </p>
+        </div>
+        <div style="padding: 10px;">
+            <fieldset>
+                <legend>Enter a number between 1 and 100</legend>
+                <br>
+                <input type="text" id="guess" value="0" autofocus/>
+                <input type="button" onclick="yourGuess()" value="Guess" /><br />
+                <br>
+                <input type="button" onclick="generateNumberToGuess(true)" value="New Game" /><br />
+            </fieldset>
+            <fieldset id="guesses" class="guesses">
+                <textarea id="output" name="output" rows="40" style="width: 100%;"></textarea>
+            </fieldset>
+        </div>
+    </div>
+    <div id="menu-outer">
+        <div class="table">
+            <ul id="horizontal-list">
+                <li>
+                    <a href="https://www.linkedin.com/in/emma-mcdonald-brown-bb187a28/"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="mailto:emma.mcdonald-brown@outlook.com?Subject=Contact from your CV Page" target="_top"><i class="far fa-envelope"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var numguess = 0;
+
+    function yourGuess() {
+        // You can store references to the value and the 
+        // guesses textarea in local function variables.
+        var guess = document.getElementById("guess").value;
+        var guesses = document.getElementById("output");
+
+        numguess = numguess + 1;
+
+        if ((guess > 100) || (guess < 0)) {
+            alert("Number must be between 0 and 100");
+            document.getElementById('guess').value = 0;
+            document.getElementById('output').style.backgroundColor = 'white';
+            document.getElementById("guess").focus();
+            return;
+        }
+
+        // First, if the guess is the same, just show the answer.
+        // Append onto the textarea the result.
+        if (guess == numToGuess) {
+            guesses.value = guesses.value + "\r" + "You have guessed correctly! (" + guess + "). " + "Total guesses: " + numguess;
+        } else if (guess > numToGuess) {
+            guesses.value = guesses.value + "\r" + "You guessing too high!(" + guess + "). " + "Total guesses: " + numguess;
+        } else {
+            guesses.value = guesses.value + "\r" + "You guessing too low!(" + guess + "). " + "Total guesses: " + numguess;
+        }
+
+        if (guess == numToGuess) {
+            document.getElementById('output').style.backgroundColor = 'green';
+        } else if ((guess <= numToGuess + 10) && (guess >= numToGuess - 10)) {
+            document.getElementById('output').style.backgroundColor = 'red';
+        } else if ((guess > numToGuess + 30) || (guess < numToGuess - 30)) {
+            document.getElementById('output').style.backgroundColor = 'blue';
+        } else {
+            document.getElementById('output').style.backgroundColor = 'white';
+        }
+    }
+
+    // Randomly generate a number
+    function generateNumberToGuess(confirmIt) {
+        var guesses = document.getElementById("output");
+
+        // First, confirm this is what we want if the confirmIt
+        // argument was passed.
+        if (confirmIt && !confirm('Restart game with new number?')) {
+            return;
+        }
+
+        guesses.value = '';
+        numToGuess = Math.floor(Math.random() * 100);
+        guesses.value = "New number generated.\n";
+        numguess = 0;
+        document.getElementById('guess').value = 0;
+        document.getElementById('output').style.backgroundColor = 'white';
+        document.getElementById("guess").focus();
+
+        // Don't forget to hide the new number.
+        document.getElementById('numberToGuess').value = '';
+    }
+
+    window.onload = function() {
+        generateNumberToGuess();
+    }
+</script>
+
+</html>

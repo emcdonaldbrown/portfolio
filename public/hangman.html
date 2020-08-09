@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <link rel="icon" type="image/png" href="EMB.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="embcss.css">
+    <title>Emma McDonald-Brown</title>
+</head>
+
+<body>
+    <div class="top-buffer">
+        <header class="header">
+            <a href="#">
+                <img class="logo" src="EMB.png" alt="EMB Logo" height=45 width=45>
+            </a>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="work.html">Work Experience</a></li>
+                <li><a href="education.html">Education/Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="pirate.html">Treasure Island</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="hangman-game">
+        <h2 class="title">Hangman</h2>
+        <div class="education-main-text">
+            <p>
+                Hangman:<br><br>You will be given a random phrase to guess.<br><br> When you choose a letter, if it is correct, it will appear in the phrase. If it is incorrect you will lose a life.<br><br> The game ends when you
+                have correctly guessed the phrase, or all lives are lost.<br><br>
+            </p>
+        </div>
+        <img id="hangmanpic" src="./images/0.jpg" alt="Hangman starting point" />
+        <br />
+        <div>Wrong Guesses: <span id="mistakes">0</span> of <span id="maxWrong"></span></div>
+        <p id="wordToGuess"></p>
+        <div id="keyboard"></div>
+        <br />
+        <button class="btn button-reset" onclick="reset()">Reset</button>
+    </div>
+    <div id="menu-outer">
+        <div class="table">
+            <ul id="horizontal-list">
+                <li>
+                    <a href="https://www.linkedin.com/in/emma-mcdonald-brown-bb187a28/"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="mailto:emma.mcdonald-brown@outlook.com?Subject=Contact from your CV Page" target="_top"><i class="far fa-envelope"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="./js/hangman.js">
+    </script>
+</body>
+</html>
