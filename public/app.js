@@ -3,6 +3,24 @@ const api = {
     baseurl: "https://api.openweathermap.org/data/2.5/",
 }
 
+window.addEventListener('load', ()=> {
+    let long;
+    let lat;
+    
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
+
+        fetch(`${api.baseurl}weather?lat=${lat}&lon=${long}&units=metric&APPID=${api.key}`)
+            .then(weather => {
+                return weather.json();
+            }).then(displayResults);
+        });
+    } 
+});
+
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
 
@@ -20,7 +38,6 @@ function getResults (query) {
 }
 
 function displayResults (weather) {
-    console.log(weather);
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
 
