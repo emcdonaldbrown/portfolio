@@ -1,6 +1,6 @@
 *{
-    margin=0;
-    padding=0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     
 }
@@ -318,7 +318,7 @@ footer{
 
 footer ul{
     display:flex;
-    margin-bottom;25px;
+    margin-bottom:25px;
     font-size:32px;
 }
 
@@ -346,7 +346,7 @@ footer p{
 }
 
 footer p a{
-    color:fff:
+    color:fff;
 }
 
 @media(max-width:700px){
