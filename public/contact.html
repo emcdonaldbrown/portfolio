@@ -31,19 +31,23 @@
     </div>
     <div class="contact">
         <h2 class="title">Contact</h2>
-        <form class="contact-form">
-            Name:<br>
-            <input type="text" name="name" placeholder="Name">
-            <br> Email:<br>
-            <input type="email" name="email" placeholder="Email Address">
+        <form id="contact-form" method="post" action="action_page.php">
             <br>
-            <label for="query">Query:</label>
+            <label for="name">Name</label>
             <br>
-            <textarea id="query" name="query" rows="4" cols="50">            
-            </textarea>
-            <br><br>
-            <input type="submit" value="Submit">
-        </form>
+            <input type="text" id="name" name="name" placeholder="Your name.." required>
+            <br>
+            <label for="email">Email Address</label>
+            <br>
+            <input type="text" id="email" name="email" placeholder="Your email address.." required>
+            <br>
+            <label for="query">Query</label>
+            <br>
+            <textarea id="query" name="query" placeholder="Your query.." style="height:200px" required></textarea>
+            <br>
+            <input type="submit" name="submit" value="Submit">
+        
+          </form>
     </div>
     <div id="menu-outer">
         <div class="table">
@@ -52,7 +56,7 @@
                     <a href="https://www.linkedin.com/in/emma-mcdonald-brown-bb187a28/"><i class="fab fa-linkedin"></i></a>
                 </li>
                 <li>
-                    <a href="mailto:emma.mcdonald-brown@outlook.com?Subject=Contact from your CV Page" target="_top"><i class="far fa-envelope"></i></a>
+                    <a href="mailto:emma@embdeveloper.co.uk?Subject=Contact from your CV Page" target="_top"><i class="far fa-envelope"></i></a>
                 </li>
                 <li>
                     <a href="https://github.com/emcdonaldbrown" target="_top"><i class="fab fa-github"></i></a>
